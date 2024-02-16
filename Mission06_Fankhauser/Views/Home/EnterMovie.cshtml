@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Film Entry";
+}
+
+<!-- Bring in the model as the MovieEntry model-->
+@model MovieEntry
+
+<div class="text-center">
+    <!-- Here is my header -->
+    <h1 class="display-4">Enter a Film</h1>
+    <br />
+    <!-- Form with the method post -->
+    <form method="post">
+        <!-- Add labels and inputs for the features of the model -->
+        <!-- Make the required inputs required to submit the form -->
+        <label asp-for="Category">Category</label>
+        <input asp-for="Category" required/>
+        <br />
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" required />
+        <br />
+        <label asp-for="Year">Year</label>
+        <input asp-for="Year" required />
+        <br />
+        <label asp-for="Director">Director</label>
+        <input asp-for="Director" required />
+        <br />
+        <label asp-for="Rating">Rating</label>
+        <select asp-for="Rating" required>
+            <!-- Base option that is empty. You must select one of the nonempty options or it won't submit -->
+            <option value=""></option>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+        <br />
+        <!-- The following inputs are not required, so they are not set to be required -->
+        <label asp-for="Edited">Edited</label>
+        <select asp-for="Edited">
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+        </select>
+        <br />
+        <label asp-for="LentTo">Lent to</label>
+        <input asp-for="LentTo" />
+        <br />
+        <!-- Add a max length of 25 characters to ensure users don't input Notes that are longer -->
+        <label asp-for="Notes">Notes</label>
+        <input asp-for="Notes" maxlength="25"/>
+        <br />
+        <!-- Submit button -->
+        <button type="submit">Submit</button>
+    </form>
+</div>

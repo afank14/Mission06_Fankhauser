@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Confirmation";
+}
+
+<!-- Bring in the model -->
+@model MovieEntry
+
+<div class="text-center">
+    <!-- Thank them for entering whatever movie they entered -->
+    <h2>Thanks for entering @Model.Title</h2>
+    <!-- Joel gladly thanks them for their submission by staring into their soul -->
+    <img src="~/joel.jpg" />
+</div>
