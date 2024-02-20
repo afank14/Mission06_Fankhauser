@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Confirm Deletion";
+}
+
+<!-- Pull in the model -->
+@model MovieEntry
+
+<!-- Center it all because why not?-->
+<div class="text-center">
+
+    <h2>Confirm Deletion</h2>
+
+    <!-- Grab the movie title -->
+    <h3>@Model.Title</h3>
+
+    <!-- Make a form to confirm the deletion -->
+    <form method="post">
+        <!-- Hidden input will submit the MovieId so the correct entry is deleted -->
+        <input type="hidden" asp-for="MovieId" />
+
+        <!-- Submit button to delete the record -->
+        <button type="submit">Delete</button>
+
+        <!-- Cancel button that just takes us back to the Collection view without deleting the record -->
+        <a class="btn btn-info" asp-controller="Home" asp-action="Collection">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,58 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Collection";
+}
+
+<!-- Grab the list with the movies we sent in the action -->
+@model List<MovieEntry>
+
+<div class="text-center">
+    <!-- Add a header -->
+    <h1 class="display-4">Joel Hilton's Film Collection</h1>
+
+    <!-- Create a bordered table -->
+    <table class="table table-bordered table-light">
+        <!-- Create a header with bolded titles for the columns -->
+        <thead class="fw-bold">
+            <tr>
+                <td>Category</td>
+                <td>Title</td>
+                <td>Year</td>
+                <td>Director</td>
+                <td>Rating</td>
+                <td>Edited</td>
+                <td>Lent To</td>
+                <td>Copied to Plex</td>
+                <td>Notes</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Dynamically display all of the rows based on the passed in list of movies from the model-->
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.CategoryId</td>
+                    <td>@m.Title</td>
+                    <td>@m.Year</td>
+                    <td>@m.Director</td>
+                    <td>@m.Rating</td>
+                    <td>@m.Edited</td>
+                    <td>@m.LentTo</td>
+                    <td>@m.CopiedToPlex</td>
+                    <td>@m.Notes</td>
+
+                    <!-- Add two details. One for the Edit and One for Delete -->
+                    <!-- Both with pass the m.MovieId in the route if clicked -->
+                    <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@m.MovieId">Edit</a></td>
+                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@m.MovieId">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>

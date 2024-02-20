@@ -12,47 +12,83 @@
     <!-- Here is my header -->
     <h1 class="display-4">Enter a Film</h1>
     <br />
+
     <!-- Form with the method post -->
     <form method="post">
+
         <!-- Add labels and inputs for the features of the model -->
-        <!-- Make the required inputs required to submit the form -->
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category" required/>
+        <!-- Start with a hidden input for movie id -->
+        <input type="hidden" asp-for="MovieId" />
+
+        <!-- Input for category id stores id number as value but displays the Category name from the ViewBag -->
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            <!-- Dynamically display an option for each category in the Categories table using a ViewBag -->
+            @foreach (Categories c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.Category</option>
+            }
+        </select>
         <br />
+
+        <!-- input for the Title-->
         <label asp-for="Title">Title</label>
-        <input asp-for="Title" required />
+        <input asp-for="Title" />
         <br />
+
+        <!-- Input for the Year -->
         <label asp-for="Year">Year</label>
-        <input asp-for="Year" required />
+        <input asp-for="Year" />
         <br />
+
+        <!-- Input for the director -->
         <label asp-for="Director">Director</label>
-        <input asp-for="Director" required />
+        <input asp-for="Director" />
         <br />
+
+        <!-- Input for the rating using preset values -->
         <label asp-for="Rating">Rating</label>
-        <select asp-for="Rating" required>
-            <!-- Base option that is empty. You must select one of the nonempty options or it won't submit -->
-            <option value=""></option>
+        <select asp-for="Rating">
+            <option value="">Select a Rating</option>
             <option value="G">G</option>
             <option value="PG">PG</option>
             <option value="PG-13">PG-13</option>
             <option value="R">R</option>
+            <option value="NR">NR</option>
         </select>
         <br />
-        <!-- The following inputs are not required, so they are not set to be required -->
+
+        <!-- Edited input -->
         <label asp-for="Edited">Edited</label>
         <select asp-for="Edited">
             <option value="false">No</option>
             <option value="true">Yes</option>
         </select>
         <br />
+
+        <!-- Lent to input -->
         <label asp-for="LentTo">Lent to</label>
         <input asp-for="LentTo" />
         <br />
+
+        <!-- Copied to Plex input -->
+        <label asp-for="CopiedToPlex">Copied to Plex</label>
+        <select asp-for="CopiedToPlex">
+            <option value="false">No</option>
+            <option value="true">Yes</option>
+        </select>
+        <br />
+
         <!-- Add a max length of 25 characters to ensure users don't input Notes that are longer -->
         <label asp-for="Notes">Notes</label>
         <input asp-for="Notes" maxlength="25"/>
         <br />
+
         <!-- Submit button -->
         <button type="submit">Submit</button>
+
+        <!-- Put the validation summary -->
+        <div asp-validation-summary="All"></div>
     </form>
 </div>
