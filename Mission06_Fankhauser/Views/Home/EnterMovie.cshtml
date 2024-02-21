@@ -14,81 +14,91 @@
     <br />
 
     <!-- Form with the method post -->
-    <form method="post">
+    <form method="post" style="max-width: 400px; margin: 0 auto;">
 
         <!-- Add labels and inputs for the features of the model -->
         <!-- Start with a hidden input for movie id -->
         <input type="hidden" asp-for="MovieId" />
 
         <!-- Input for category id stores id number as value but displays the Category name from the ViewBag -->
-        <label asp-for="CategoryId">Category</label>
-        <select asp-for="CategoryId">
-            <option value="">Select a Category</option>
-            <!-- Dynamically display an option for each category in the Categories table using a ViewBag -->
-            @foreach (Category c in ViewBag.Categories)
-            {
-                <option value="@c.CategoryId">@c.CategoryName</option>
-            }
-        </select>
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="CategoryId" style="display: block;">Category</label>
+            <select asp-for="CategoryId" style="width: 100%;">
+                <option value="">Select a Category</option>
+                <!-- Dynamically display an option for each category in the Categories table using a ViewBag -->
+                @foreach (Category c in ViewBag.Categories)
+                {
+                    <option value="@c.CategoryId">@c.CategoryName</option>
+                }
+            </select>
+        </div>
 
         <!-- input for the Title-->
-        <label asp-for="Title">Title</label>
-        <input asp-for="Title" />
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="Title" style="display: block;">Title</label>
+            <input asp-for="Title" style="width: 100%;" />
+        </div>
 
         <!-- Input for the Year -->
-        <label asp-for="Year">Year</label>
-        <input asp-for="Year" />
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="Year" style="display: block;">Year</label>
+            <input asp-for="Year" style="width: 100%;" />
+        </div>
 
         <!-- Input for the director -->
-        <label asp-for="Director">Director</label>
-        <input asp-for="Director" />
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="Director" style="display: block;">Director</label>
+            <input asp-for="Director" style="width: 100%;" />
+        </div>
 
         <!-- Input for the rating using preset values -->
-        <label asp-for="Rating">Rating</label>
-        <select asp-for="Rating">
-            <option value="">Select a Rating</option>
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
-            <option value="NR">NR</option>
-        </select>
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="Rating" style="display: block;">Rating</label>
+            <select asp-for="Rating" style="width: 100%;">
+                <option value="">Select a Rating</option>
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+                <option value="NR">NR</option>
+            </select>
+        </div>
 
         <!-- Edited input -->
-        <label asp-for="Edited">Edited</label>
-        <select asp-for="Edited">
-            <option value="false">No</option>
-            <option value="true">Yes</option>
-        </select>
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="Edited" style="display: block;">Edited</label>
+            <select asp-for="Edited" style="width: 100%;">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+        </div>
 
         <!-- Lent to input -->
-        <label asp-for="LentTo">Lent to</label>
-        <input asp-for="LentTo" />
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="LentTo" style="display: block;">Lent to</label>
+            <input asp-for="LentTo" style="width: 100%;" />
+        </div>
 
         <!-- Copied to Plex input -->
-        <label asp-for="CopiedToPlex">Copied to Plex</label>
-        <select asp-for="CopiedToPlex">
-            <option value="false">No</option>
-            <option value="true">Yes</option>
-        </select>
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="CopiedToPlex" style="display: block;">Copied to Plex</label>
+            <select asp-for="CopiedToPlex" style="width: 100%;">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+            </select>
+        </div>
 
         <!-- Add a max length of 25 characters to ensure users don't input Notes that are longer -->
-        <label asp-for="Notes">Notes</label>
-        <input asp-for="Notes" maxlength="25"/>
-        <br />
+        <div style="margin-bottom: 10px;">
+            <label asp-for="Notes" style="display: block;">Notes</label>
+            <input asp-for="Notes" style="width: 100%;" maxlength="25" />
+        </div>
 
         <!-- Submit button -->
-        <button type="submit">Submit</button>
+        <button type="submit" style="width: 100%;">Submit</button>
 
         <!-- Put the validation summary -->
         <div asp-validation-summary="All"></div>
     </form>
+
 </div>

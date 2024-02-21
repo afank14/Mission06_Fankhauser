@@ -12,9 +12,11 @@ namespace Mission06_Fankhauser.Models
         public int MovieId { get; set; }
 
         // Set the Foreign Key as CategoryId from the Category Model
+        // IDK why I need the required and the ?s here, it seems contradictory
+        // However, this is the only way I tried that made it work, so I kept it. 
         [ForeignKey("CategoryId")]
-        [Required]
-        public int CategoryId { get; set; }
+        [Required(ErrorMessage = "Please input a valid Category")]
+        public int? CategoryId { get; set; }
         public Category? Category { get; set; }
 
         // Set the Title as required and add an error message
