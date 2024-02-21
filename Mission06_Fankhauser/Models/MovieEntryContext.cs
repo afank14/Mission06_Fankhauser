@@ -14,6 +14,6 @@ namespace Mission06_Fankhauser.Models
         public DbSet<MovieEntry> Movies { get; set; }
 
         // Make a table named Categories
-        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

@@ -13,7 +13,7 @@
     <h1 class="display-4">Joel Hilton's Film Collection</h1>
 
     <!-- Create a bordered table -->
-    <table class="table table-bordered table-light">
+    <table class="table table-bordered table-striped">
         <!-- Create a header with bolded titles for the columns -->
         <thead class="fw-bold">
             <tr>
@@ -23,8 +23,8 @@
                 <td>Director</td>
                 <td>Rating</td>
                 <td>Edited</td>
-                <td>Lent To</td>
-                <td>Copied to Plex</td>
+                <td style="white-space: nowrap">Lent To</td>
+                <td style="white-space: nowrap">Copied to Plex</td>
                 <td>Notes</td>
                 <td>Edit</td>
                 <td>Delete</td>
@@ -36,7 +36,7 @@
             @foreach (var m in Model)
             {
                 <tr>
-                    <td>@m.CategoryId</td>
+                    <td>@m.Category.CategoryName</td>
                     <td>@m.Title</td>
                     <td>@m.Year</td>
                     <td>@m.Director</td>
@@ -55,4 +55,8 @@
         </tbody>
 
     </table>
+    <br />
+    <!-- Add a scroll to top button cuz I was annoyed scrolling back -->
+    <!-- I gave the header in the _Layout View the id of top so it scrolls there -->
+    <a href="#top">Scroll to Top</a>
 </div>

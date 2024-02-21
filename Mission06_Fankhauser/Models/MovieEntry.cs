@@ -12,10 +12,10 @@ namespace Mission06_Fankhauser.Models
         public int MovieId { get; set; }
 
         // Set the Foreign Key as CategoryId from the Category Model
-        // This field can be null
         [ForeignKey("CategoryId")]
-        public int? CategoryId { get; set; }
-        public Categories? Category { get; set; }
+        [Required]
+        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
 
         // Set the Title as required and add an error message
         [Required(ErrorMessage = "Please input a title")]
@@ -28,9 +28,7 @@ namespace Mission06_Fankhauser.Models
         [Range(1888, 2024, ErrorMessage = "Please input a valid year")]
         public int Year { get; set; } = 0;
 
-        // The rating is required
-        [Required]
-        public string Rating { get; set; } // G, PG, PG-13, R, NR
+        public string? Rating { get; set; } // G, PG, PG-13, R, NR
 
         // The Edited field is required
         [Required]

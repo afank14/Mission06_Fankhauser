@@ -25,9 +25,9 @@
         <select asp-for="CategoryId">
             <option value="">Select a Category</option>
             <!-- Dynamically display an option for each category in the Categories table using a ViewBag -->
-            @foreach (Categories c in ViewBag.Categories)
+            @foreach (Category c in ViewBag.Categories)
             {
-                <option value="@c.CategoryId">@c.Category</option>
+                <option value="@c.CategoryId">@c.CategoryName</option>
             }
         </select>
         <br />

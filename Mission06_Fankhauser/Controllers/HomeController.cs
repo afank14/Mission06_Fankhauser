@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission06_Fankhauser.Models;
 using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
@@ -68,7 +69,8 @@ namespace Mission06_Fankhauser.Controllers
         public IActionResult Collection()
         {
             // Use linq to show the records from the database
-            var movies = _context.Movies.ToList();
+            // I am not ordering because I want the newest entries to be at the bottom
+            var movies = _context.Movies.Include("Category").ToList();
 
             return View(movies);
         }
